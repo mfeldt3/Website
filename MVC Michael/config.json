@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "MichaelFeldtConnection" : "server=(localdb)\\MSSQLLocalDB;Database=Michael;Integrated Security=true;MultipleActiveResultSets=true;"
+  }
+}

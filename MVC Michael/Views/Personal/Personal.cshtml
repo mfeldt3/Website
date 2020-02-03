@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ParkList>
+@{
+    ViewData["Title"] = "Personal";
+}
+    <div class='container-fluid'>
+        <div>
+            <img class="img-fluid mb-4 border-dark rounded" src="~/images/NationalParksMap.jpg" />
+        </div>
+        <div class="container-bg rounded border-dark">
+                    <ol class="card-columns">
+                        @foreach (var park in Model)
+                        {
+                        <li class="parklist"><a class="nav-link text-dark" href="@Url.Action("ParkImages", "Personal", new { @park.ParkListId, @park.ParkName })">@park.ParkName</a></li>
+                        }
+                    </ol>
+        </div>
+    </div>

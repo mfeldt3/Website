@@ -1,0 +1,33 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "Park Images";
+}
+<div>
+    <input type="button" onclick="ToggleAddForm()" value="Add an Image for this park" />
+</div>
+@using (Html.BeginForm("SaveImage", "Personal", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+        <div id="AddImageForm">
+            <input type="file" name="Image" />
+            <input name="Parkname" type="text" value="@Model.ParkDetails.ParkName" readonly />
+            <input name="ParkID" type="text" value="@Model.ParkDetails.ParkListId" readonly />
+            <input name="Title" type="text" />
+            <input name="Description" type="text" />
+            <input type="submit" id="btnUpload" value="Upload" />
+        </div> 
+
+
+}
+<div>
+    <div class="mdb-lightbox no-margin">
+        <figure class="col-md-4">
+            @foreach (System.Drawing.Image Image in Model.Images)
+            {
+                    <img alt="picture" src="@Image"
+                         class="img-fluid">
+            }
+        </figure>
+
+
+    </div>
+</div>
