@@ -50,21 +50,25 @@ namespace MVC_Michael.Controllers
         ParkList.ParkName = parkName;
         ParkImagesAndDetails.ParkDetails = ParkList;
         var parkImages = _repository.GetParkImages(parkListId);
-        List<System.Drawing.Image> Images = new List<System.Drawing.Image>();
-        foreach (ParkImage park in parkImages)
-        {
-          Images.Add(_repository.byteArrayToImage(park.Image));
-        }
-        ParkImagesAndDetails.Images = Images;
         ParkImagesAndDetails.ParkImages = parkImages;
-        
-
         return View(ParkImagesAndDetails);
       }
       else
       {
         return View();
       }
+    }
+
+    public IActionResult GetImageById(int ImageId)
+    {
+      var ParkImage = _repository.GetImageById(ImageId);
+      FileContentResult ImageFile=null;
+      foreach (ParkImage park in ParkImage)
+      {
+        ImageFile= File(park.Image, "image/jpg");
+        break;
+      }
+      return ImageFile;
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

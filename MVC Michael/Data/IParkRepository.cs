@@ -16,5 +16,7 @@ namespace MVC_Michael.Data
     byte[] ImageToByteArray(IFormFile Image);
 
     IEnumerable<ParkImage> GetParkImages(int Park);
+
+    IEnumerable<ParkImage> GetImageById(int ImageID);
   }
 }

@@ -72,6 +72,12 @@ namespace MVC_Michael.Data
                 .ToList();
     }
 
+    public IEnumerable<ParkImage> GetImageById(int ImageID)
+    {
+      return _ctx.ParkImages
+                .Where(pi => pi.Id == ImageID);
+    }
+
     //Used to convert ByteArray Image to image from database
     public Image byteArrayToImage(byte[] databaseImage)
     {

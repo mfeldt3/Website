@@ -21,10 +21,10 @@
 <div>
     <div class="mdb-lightbox no-margin">
         <figure class="col-md-4">
-            @foreach (System.Drawing.Image Image in Model.Images)
+            @foreach (ParkImage parkImage in Model.ParkImages)
             {
-                    <img alt="picture" src="@Image"
-                         class="img-fluid">
+                    <img alt="picture" src='@Url.Action("GetImageById", "Personal", new {ImageId = parkImage.Id})'
+                         class="img-fluid" />
             }
         </figure>
 
