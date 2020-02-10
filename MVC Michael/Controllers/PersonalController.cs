@@ -65,6 +65,11 @@ namespace MVC_Michael.Controllers
       FileContentResult ImageFile=null;
       foreach (ParkImage park in ParkImage)
       {
+        if (park.Image == null)
+        { 
+          ImageFile = null;
+          break;
+        }
         ImageFile= File(park.Image, "image/jpg");
         break;
       }
@@ -75,6 +80,19 @@ namespace MVC_Michael.Controllers
     public IActionResult Error()
     {
       return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+    public IActionResult DeleteImageById(int ImageId, string Parkname, string ParkId)
+    {
+      var result = _repository.DeleteImageById(ImageId);
+      if (result == "successful")
+      {
+        return RedirectToAction("ParkImages", new { parkListId = ParkId, parkName = Parkname });
+      }
+      else
+      {
+        return View(result);
+      }
     }
   }
 }

@@ -18,16 +18,45 @@
 
 
 }
-<div>
-    <div class="mdb-lightbox no-margin">
-        <figure class="col-md-4">
-            @foreach (ParkImage parkImage in Model.ParkImages)
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        @{ int slide = 0;
+            foreach (ParkImage parkImage in Model.ParkImages)
             {
-                    <img alt="picture" src='@Url.Action("GetImageById", "Personal", new {ImageId = parkImage.Id})'
-                         class="img-fluid" />
+                string carousel = slide == 0 ? "active" : "";
+                <li data-target="#carouselExampleIndicators" data-slide-to="@slide" class="active"></li>
+                slide = slide + 1;
             }
-        </figure>
+        }
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        @{ int imageNumber = 0;
+                foreach (ParkImage parkImage in Model.ParkImages)
+                {
+                    string carousel = imageNumber == 0 ? "carousel-item active" : "carousel-item";
+                    <div class="@carousel">
+                        <a href='@Url.Action("GetImageById", "Personal", new { ImageId = @parkImage.Id })'> <img src='@Url.Action("GetImageById", "Personal", new { ImageId = @parkImage.Id })'> </a>
+                        <div class="carousel-caption text-center">
+                            <h2>@parkImage.Title</h2>
+                            <h5>@parkImage.Description</h5>
+                            <a class="nav-link text-dark" href="@Url.Action("DeleteImageById", "Personal", new { imageId = @parkImage.Id, Parkname = @Model.ParkDetails.ParkName, ParkId = @Model.ParkDetails.ParkListId })">Delete this Image </a>
+                        </div>
+                    </div>
+                    imageNumber = imageNumber + 1;
+                }
 
-
+        }
     </div>
+    @if (@Model.ParkImages.Count > 0)
+    {
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    }
 </div>

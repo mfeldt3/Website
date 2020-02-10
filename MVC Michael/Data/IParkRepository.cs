@@ -18,5 +18,7 @@ namespace MVC_Michael.Data
     IEnumerable<ParkImage> GetParkImages(int Park);
 
     IEnumerable<ParkImage> GetImageById(int ImageID);
+
+    string DeleteImageById(int ImageID);
   }
 }

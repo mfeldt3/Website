@@ -84,5 +84,23 @@ namespace MVC_Michael.Data
       using MemoryStream imgStream = new MemoryStream(databaseImage);
       return Image.FromStream(imgStream);
     }
+
+    public string DeleteImageById(int ImageID)
+    {
+      var x = (from y in _ctx.ParkImages
+               where y.Id == ImageID
+               select y).FirstOrDefault();
+      _ctx.ParkImages.Remove(x);
+      if (x != null)
+      { 
+        _ctx.SaveChanges();
+        return "successful";
+      }
+      else
+      {
+        return "failed";
+      }
+     
+    }
   }
 }

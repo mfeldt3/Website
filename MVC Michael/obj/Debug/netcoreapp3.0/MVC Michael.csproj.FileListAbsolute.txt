@@ -76,4 +76,3 @@ C:\Users\micha\Documents\Website\MVC Michael\bin\Debug\netcoreapp3.0\runtimes\wi
 C:\Users\micha\Documents\Website\MVC Michael\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\micha\Documents\Website\MVC Michael\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\micha\Documents\Website\MVC Michael\obj\Debug\netcoreapp3.0\MVC Michael.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\micha\Documents\Website\MVC Michael\obj\Debug\netcoreapp3.0\MVC Michael.csprojAssemblyReference.cache
