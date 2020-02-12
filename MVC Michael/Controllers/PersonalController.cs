@@ -22,6 +22,7 @@ namespace MVC_Michael.Controllers
       this._repository = repository;
     }
 
+    [Route("Parks")]
     public IActionResult Personal()
     {
       var results = _repository.GetAllParks();
@@ -29,17 +30,17 @@ namespace MVC_Michael.Controllers
     }
 
     [HttpPost]
-    public IActionResult SaveImage(IFormFile Image, ParkImage ParkImageDetails)
+    public IActionResult SaveImage(IFormFile Image, ParkImage ParkImageDetails, string ParkName)
     {
       if (ParkImageDetails == null)
       {
         return View("Details were not filled out");
       }
       var results = _repository.SaveParkImage(Image, ParkImageDetails.ParkId, ParkImageDetails.Title, ParkImageDetails.Description);
-      return RedirectToAction("ParkImages", new { parkListId = ParkImageDetails.ParkId, parkName = ParkImageDetails.Title });
+      return RedirectToAction("ParkImages", new { parkListId = ParkImageDetails.ParkId, parkName = ParkName });
 
     }
-
+    [Route("Images")]
     public IActionResult ParkImages(int parkListId, string parkName)
     {
       if (parkListId > 0 && parkListId < 60)

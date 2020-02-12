@@ -18,6 +18,7 @@ namespace MVC_Michael.Controllers
       _logger = logger;
     }
 
+    [Route("Professional")]
     public IActionResult Professional()
     {
       return View();

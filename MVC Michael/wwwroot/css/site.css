@@ -97,14 +97,13 @@ body {
 }
 .carousel-inner {
     width:auto;
-    height: 500px
-    !important;
-    overflow: visible;
+    height: 700px !important;
+    overflow-y: visible;
 
 }
 .carousel-caption {
-    left:auto;
-    right:auto;
-    position:relative;
+    left: auto;
+    right: auto;
+    position: relative;
 }
 
