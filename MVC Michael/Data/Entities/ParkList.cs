@@ -5,5 +5,6 @@ namespace MVC_Michael.Data.Entities
   {
     public int ParkListId { get; set; }
     public string ParkName { get; set; }
+    public int ParkNumber { get; set; }
   }
 }

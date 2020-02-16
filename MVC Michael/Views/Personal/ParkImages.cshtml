@@ -3,12 +3,12 @@
     ViewData["Title"] = "Park Images";
 }
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button id="AddImage" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     Add an Image
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" onsubmit="return checkAuthorization()">
     @using (Html.BeginForm("SaveImage", "Personal", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <div class="modal-dialog" role="document">
@@ -20,17 +20,17 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="file" name="Image" accept="image/x-png,image/gif,image/jpeg, image/jpg" required/>
+                    <input type="file" name="Image" accept="image/x-png,image/gif,image/jpeg, image/jpg" required />
                     <input name="ParkName" type="text" value="@Model.ParkDetails.ParkName" readonly />
                     <p>Park Name</p>
-                    <input name="ParkID" type="text" value="@Model.ParkDetails.ParkListId" readonly />
-                    <p>Park ID</p>
-                    <input name="Title" type="text" maxlength="50" required/>
+                    <input name="ParkId" type="number" value="@Model.ParkDetails.ParkNumber" readonly />
+                    <p>Park Number</p>
+                    <input name="Title" type="text" maxlength="50" required />
                     <p> Image Title</p>
                     <textarea name="Description" cols="60" rows="5" maxlength="150" placeholder="What trail was this?"></textarea>
                     <p> Image Description</p>
-                    <input name"authorizationCode" type="password" maxlength="25" required/>
-                    <p> Authorization Code </p>
+                    <input id="authorizationCode" type="password" maxlength="25" required />
+                    <p id="authLabel"> Authorization Code </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -40,7 +40,12 @@
             </div>
         </div>
     }
-    </div>
+</div>
+@* Have not visited yet *@
+@if (Model.ParkImages.Count == 0)
+{
+    <h6 class="text-center">We have not visited this park yet. Please check back later.</h6>
+}
 
 @* Carousel *@
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -64,7 +69,7 @@
                     <div class="carousel-caption text-center">
                         <h1>@parkImage.Title</h1>
                         <h4>@parkImage.Description</h4>
-                        <a class="nav-link" href="@Url.Action("DeleteImageById", "Personal", new { imageId = @parkImage.Id, Parkname = @Model.ParkDetails.ParkName, ParkId = @Model.ParkDetails.ParkListId })">Delete this Image </a>
+                        <a id="delete" class="nav-link" onclick="return deleteValidation()" href="@Url.Action("DeleteImageById", "Personal", new { imageId = @parkImage.Id, Parkname = @Model.ParkDetails.ParkName, ParkNumber = @Model.ParkDetails.ParkNumber })">Delete this Image </a>
                     </div>
                 </div>
                 imageNumber = imageNumber + 1;
@@ -75,10 +80,10 @@
     @if (@Model.ParkImages.Count > 0)
     {
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span><i class="fas fa-arrow-circle-left fa-lg"></i></span>
+            <span><i id="arrow" class="fas fa-arrow-circle-left fa-lg"></i></span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span><i class="fas fa-arrow-circle-right fa-lg"></i></span>
+            <span><i id="arrow" class="fas fa-arrow-circle-right fa-lg"></i></span>
         </a>
     }
 </div>

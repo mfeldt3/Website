@@ -10,7 +10,7 @@
                     <ol class="card-columns">
                         @foreach (var park in Model)
                         {
-                        <li class="parklist"><a class="nav-link text-dark" href="@Url.Action("ParkImages", "Personal", new { @park.ParkListId, @park.ParkName })">@park.ParkName</a></li>
+                        <li class="parklist"><a class="nav-link text-dark" href="@Url.Action("ParkImages", "Personal", new { @park.ParkNumber, @park.ParkName })">@park.ParkName</a></li>
                         }
                     </ol>
         </div>

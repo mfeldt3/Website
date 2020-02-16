@@ -37,20 +37,20 @@ namespace MVC_Michael.Controllers
         return View("Details were not filled out");
       }
       var results = _repository.SaveParkImage(Image, ParkImageDetails.ParkId, ParkImageDetails.Title, ParkImageDetails.Description);
-      return RedirectToAction("ParkImages", new { parkListId = ParkImageDetails.ParkId, parkName = ParkName });
+      return RedirectToAction("ParkImages", new { ParkNumber = ParkImageDetails.ParkId, parkName = ParkName });
 
     }
     [Route("Images")]
-    public IActionResult ParkImages(int parkListId, string parkName)
+    public IActionResult ParkImages(int ParkNumber, string parkName)
     {
-      if (parkListId > 0 && parkListId < 60)
+      if (ParkNumber > 0 && ParkNumber < 60)
       {
         dynamic ParkImagesAndDetails = new ExpandoObject();
         var ParkList = new ParkList();
-        ParkList.ParkListId = parkListId;
+        ParkList.ParkNumber = ParkNumber;
         ParkList.ParkName = parkName;
         ParkImagesAndDetails.ParkDetails = ParkList;
-        var parkImages = _repository.GetParkImages(parkListId);
+        var parkImages = _repository.GetParkImages(ParkNumber);
         ParkImagesAndDetails.ParkImages = parkImages;
         return View(ParkImagesAndDetails);
       }
@@ -83,12 +83,12 @@ namespace MVC_Michael.Controllers
       return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-    public IActionResult DeleteImageById(int ImageId, string Parkname, string ParkId)
+    public IActionResult DeleteImageById(int ImageId, string Parkname, string ParkNumber)
     {
       var result = _repository.DeleteImageById(ImageId);
       if (result == "successful")
       {
-        return RedirectToAction("ParkImages", new { parkListId = ParkId, parkName = Parkname });
+        return RedirectToAction("ParkImages", new { ParkNumber = ParkNumber, parkName = Parkname });
       }
       else
       {

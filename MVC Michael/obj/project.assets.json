@@ -5753,35 +5753,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mfeldt\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\micha\\.nuget\\packages\\": {},
+    "S:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mfeldt\\Desktop\\MVC Michael\\MVC Michael.csproj",
+      "projectUniqueName": "C:\\Users\\micha\\Documents\\Website\\MVC Michael\\MVC Michael.csproj",
       "projectName": "MVC Michael",
-      "projectPath": "C:\\Users\\mfeldt\\Desktop\\MVC Michael\\MVC Michael.csproj",
-      "packagesPath": "C:\\Users\\mfeldt\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mfeldt\\Desktop\\MVC Michael\\obj\\",
+      "projectPath": "C:\\Users\\micha\\Documents\\Website\\MVC Michael\\MVC Michael.csproj",
+      "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\micha\\Documents\\Website\\MVC Michael\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "S:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\mfeldt\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://ap-nuget-1.asi.corp/dev/nuget": {},
-        "http://ap-nuget-1.asi.corp/rna/nuget": {},
-        "http://ga-dev-sb2/NuGet/nuget/": {},
-        "http://uk-devbs01:8888/guestAuth/app/nuget/v1/FeedService.svc": {},
-        "http://uk-devpackmgt01/nuget/AppliedSystemsUKDevNuGet": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5841,16 +5837,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.0.1, 3.0.1]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.0.2, 3.0.2]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -5859,7 +5845,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

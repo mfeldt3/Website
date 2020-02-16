@@ -21,7 +21,7 @@ namespace MVC_Michael.Data
     public IEnumerable<ParkList> GetAllParks()
     {
       return _ctx.ParkLists
-                  .OrderBy(p => p.ParkListId)
+                  .OrderBy(p => p.ParkNumber)
                   .ToList();
     }
 
