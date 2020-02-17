@@ -69,7 +69,7 @@
                     <div class="carousel-caption text-center">
                         <h1>@parkImage.Title</h1>
                         <h4>@parkImage.Description</h4>
-                        <a id="delete" class="nav-link" onclick="return deleteValidation()" href="@Url.Action("DeleteImageById", "Personal", new { imageId = @parkImage.Id, Parkname = @Model.ParkDetails.ParkName, ParkNumber = @Model.ParkDetails.ParkNumber })">Delete this Image </a>
+                        <a id="delete" class="nav-link" onclick="return deleteValidation()" href="@Url.Action("DeleteImageById", "Personal", new { imageId = @parkImage.Id, Parkname = @Model.ParkDetails.ParkName, ParkNumber = @Model.ParkDetails.ParkNumber })"><i class="fas fa-trash-alt"></i> </a>
                     </div>
                 </div>
                 imageNumber = imageNumber + 1;

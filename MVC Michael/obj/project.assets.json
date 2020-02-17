@@ -5759,11 +5759,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\micha\\Documents\\Website\\MVC Michael\\MVC Michael.csproj",
+      "projectUniqueName": "C:\\Users\\micha\\Documents\\GitHub\\Website\\MVC Michael\\MVC Michael.csproj",
       "projectName": "MVC Michael",
-      "projectPath": "C:\\Users\\micha\\Documents\\Website\\MVC Michael\\MVC Michael.csproj",
+      "projectPath": "C:\\Users\\micha\\Documents\\GitHub\\Website\\MVC Michael\\MVC Michael.csproj",
       "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\micha\\Documents\\Website\\MVC Michael\\obj\\",
+      "outputPath": "C:\\Users\\micha\\Documents\\GitHub\\Website\\MVC Michael\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "S:\\Microsoft\\Xamarin\\NuGet\\"
